@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: careergap-backend
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+careergap:
+  jwt:
+    secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000} # 24 hours
+  ai:
+    provider: ${AI_PROVIDER:heuristic}
+    api-key: ${AI_API_KEY:}
+    model: ${AI_MODEL:gemini-1.5-flash}
+
+logging:
+  level:
+    com.careergap: INFO
+    org.springframework.security: WARN
